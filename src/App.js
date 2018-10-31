@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Map from './Map';
+import MapContainer from './Map';
 import Quakes from './Quakes';
 
 class App extends Component {
@@ -40,12 +40,10 @@ class App extends Component {
     return (
       <div className="app">
         <div className="mapContainer">
-          ...put Map Component here...
-          <Map />
+          <MapContainer quakes={this.state.earthquakes} />
         </div>
         <div className="quakeContainer">
           <h1>Earthquakes from the past week: </h1>
-          ...put Quakes Component here...
           <Quakes quakes={this.state.earthquakes}/>
         </div>
       </div>
