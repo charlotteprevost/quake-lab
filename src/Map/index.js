@@ -4,14 +4,20 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 export class MapContainer extends Component {
     render(){
+    	console.log(this.props.quakes);
+    	const quakeMarkers = this.props.quakes.map((quake, i) => {
+    		return(
+    			<Marker key={quake.id} name={quake.properties.place} position={{lat: quake.geometry.coordinates[1], lng: quake.geometry.coordinates[0]}} icon={{url: 'http://i65.tinypic.com/wtx1kw.png'}} />
+    		)
+    	})
+    	console.log(quakeMarkers);
         return(
         	<div>
-		    	<Map style={{width: '40%', height: '42.8%', position: 'relative'}} google={this.props.google} zoom={14} initialCenter={{lat: 41.881832, lng: -87.623177}}>
-		        	<Marker onClick={this.onMarkerClick}
-		        		name={'Current Location'} />
+		    	<Map style={{width: '40%', height: '42.8%', position: 'relative'}} google={this.props.google} zoom={1} initialCenter={{lat: 41.881832, lng: -87.623177}}>
+		        	<Marker name={'GA'} position={{lat: 41.890612, lng: -87.626823}} />
+		        	{quakeMarkers}
 		        	<InfoWindow onClose={this.onInfoWindowClose} >
 		        		<div>
-		        			<h1></h1>
 		        		</div>
 		        	</InfoWindow>
 		        </Map>
