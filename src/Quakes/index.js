@@ -29,7 +29,6 @@ class Quakes extends Component {
 
         return(
             <div>
-            	<h1>Quakes</h1>
             	<ul>{quakeList}</ul>
             </div>
         )

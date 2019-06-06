@@ -13,7 +13,7 @@ export class MapContainer extends Component {
     	console.log(quakeMarkers);
         return(
         	<div>
-		    	<Map style={{width: '40%', height: '42.8%', position: 'relative'}} google={this.props.google} zoom={1} initialCenter={{lat: 41.881832, lng: -87.623177}}>
+		    	<Map style={{width: '40%', height: '37.2%', position: 'relative'}} google={this.props.google} zoom={1} initialCenter={{lat: 41.881832, lng: -87.623177}}>
 		        	<Marker name={'GA'} position={{lat: 41.890612, lng: -87.626823}} />
 		        	{quakeMarkers}
 		        	<InfoWindow onClose={this.onInfoWindowClose} >

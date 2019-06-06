@@ -14,7 +14,7 @@ class App extends Component {
   getEarthQuakes = async () => {
     try{
 
-      const earthquakes     = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson');
+      const earthquakes     = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
       const earthquakesJson = await earthquakes.json();
       return earthquakesJson;
 
@@ -25,13 +25,9 @@ class App extends Component {
   }
 
   componentDidMount(){
-
     this.getEarthQuakes().then(data=>{
-
       this.setState({earthquakes: data.features})
-
     }).catch(err=> console.error(`Error: `, err))
-
   }
 
 
